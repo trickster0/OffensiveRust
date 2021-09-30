@@ -30,20 +30,18 @@ My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant dev
 
 ## Why Rust?
 
-- Compiles *directly* to C, C++, Objective-C and Javascript.
-- Since it doesn't rely on a VM/runtime does not produce what I like to call "T H I C C malwarez" as supposed to other languages (e.g. Golang)
+- It is faster than languages like C/C++
+- It is multi-purpose language, bearing excellent communities
 - Python inspired syntax, allows rapid native payload creation & prototyping.
-- Has **extremely** mature [FFI](https://Rust-lang.org/docs/manual.html#foreign-function-interface) (Foreign Function Interface) capabilities.
-- Avoids making you actually write in C/C++ and subsequently avoids introducing a lot of security issues into your software.
-- Super easy cross compilation to Windows from *nix/MacOS, only requires you to install the `mingw` toolchain and passing a single flag to the Rust compiler.
-- The Rust compiler and the generated executables support all major platforms like Windows, Linux, BSD and macOS. Can even compile to Nintendo switch , IOS & Android. See the cross-compilation section in the [Rust compiler usage guide](https://Rust-lang.github.io/Rust/Rustc.html#crossminuscompilation)
-- You could *technically* write your implant and c2 backend both in Rust as you can compile your code directly to Javascript. Even has some [initial support for WebAssembly's](https://forum.Rust-lang.org/t/4779) 
+- It has an amazing inbuilt dependency build management called Cargo
+- It is LLVM based which makes it a very good candidate for bypassing static AV detection
+- Super easy cross compilation to Windows from *nix/MacOS, only requires you to install the `mingw` toolchain, although certain libraries cannot be compiled successfully in other OSes.
 
 ## Examples in this repo that work
 
 | File | Description |
 | ---  | --- |
-| [pop_bin.Rust](../master/src/pop_bin.Rust) | Call `MessageBox` WinApi *without* using the WiRust library |
+| [Allocate_With_Syscalls](../master/Allocate_With_Syscalls/src/main.rs) | Call `MessageBox` WinApi *without* using the WiRust library |
 | [pop_wiRust_bin.Rust](../master/src/pop_wiRust_bin.Rust) | Call `MessageBox` *with* the WiRust libary |
 | [pop_wiRust_lib.Rust](../master/src/pop_wiRust_lib.Rust) | Example of creating a Windows DLL with an exported `DllMain` |
 | [execute_assembly_bin.Rust](../master/src/execute_assembly_bin.Rust) | Hosts the CLR, reflectively executes .NET assemblies from memory |
