@@ -109,9 +109,9 @@ Careful of \0 bytes, do not forget them for strings in memory, it spent a lot of
 
 ## Interesting Rust libraries
 
--WINAPI
--[WINAPI2](https://github.com/MauriceKayser/rs-winapi2)
--Windows
+-WINAPI  
+-[WINAPI2](https://github.com/MauriceKayser/rs-winapi2)  
+-Windows  
 
 ## OPSEC
 
