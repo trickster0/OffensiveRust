@@ -67,11 +67,12 @@ This repository does not provide binaries, you're gonna have to compile them you
 
 This repo was compiled in Windows 10 so I would stick to it. As mentioned OpenSSL binaries will have depencency issues that will require OpenSSL and perl to be installed.
 For the TCP SSL client/server I recommend static build due to dependencies on the hosts you will execute the binaries.
-For creating a project, execute:
+For creating a project, execute:  
 `cargo new <name>`
 This will automatically create the structured project folders with:
 
 ```bash  
+project
 ├── Cargo.toml
 └── src
     └── main.rs
@@ -80,11 +81,11 @@ This will automatically create the structured project folders with:
 Cargo.toml is the file that contains the dependencies and the configuration for the compilation.
 main.rs is the main file that will be compiled along with any potential directories that contain libraries.
 
-For compiling the project, go into the project directory and execute:
+For compiling the project, go into the project directory and execute:  
 `cargo build`
 
 This will use your default toolchain.
-If you want to build the final "release" version execute:
+If you want to build the final "release" version execute:  
 `cargo build --release`
 
 For static binaries, in terminal before the build command execute:  
