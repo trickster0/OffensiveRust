@@ -130,3 +130,5 @@ This project grabs from a specific location the binary so I made a fork that rec
 -[UDPlant](https://github.com/trickster0/UDPlant) - Basically a UDP reverse shell  
 -[EDR Detector](https://github.com/trickster0/EDR_Detector) - Detects the EDRs of the installed system according to the .sys files installed  
 -[Lenum](https://github.com/trickster0/Lenum) - A simple unix enumeration tool
+
+P.S. - Thank you for the template and the ideas from your research [byt3bl33d3r](https://twitter.com/byt3bl33d3r) on https://github.com/byt3bl33d3r/OffensiveNim, I hope it is okay I copied some stuff.
