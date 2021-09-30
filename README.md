@@ -127,6 +127,6 @@ This project grabs from a specific location the binary so I made a fork that rec
 
 ## Other projects I have have made in Rust
 
--[UDPlant](https://github.com/trickster0/UDPlant) - Basically a UDP reverse shell
--[EDR Detector](https://github.com/trickster0/EDR_Detector) - Detects the EDRs of the installed system according to the .sys files installed
+-[UDPlant](https://github.com/trickster0/UDPlant) - Basically a UDP reverse shell  
+-[EDR Detector](https://github.com/trickster0/EDR_Detector) - Detects the EDRs of the installed system according to the .sys files installed  
 -[Lenum](https://github.com/trickster0/Lenum) - A simple unix enumeration tool
