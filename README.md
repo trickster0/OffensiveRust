@@ -12,21 +12,13 @@ My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant dev
   * [Why Rust?](#why-rust)
   * [Examples in this repo](#examples-in-this-repo)
   * [Compiling the examples](#compiling-the-examples-in-this-repo)
+  * [Compiling the examples in this repo](#Compiling-the-examples-in-this-repo)
   * [Cross Compiling](#cross-compiling)
-  * [Interfacing with C/C++](#interfacing-with-cc)
-  * [Creating Windows DLLs with an exported DllMain](#creating-windows-dlls-with-an-exported-dllmain)
   * [Optimizing executables for size](#optimizing-executables-for-size)
-  * [Reflectively Loading Rust Executables](#reflectively-loading-Rust-executables)
-  * [Executable size difference with the WiRust Library](#executable-size-difference-when-using-the-wiRust-library-vs-without)
-  * [Opsec Considirations](#opsec-considerations)
-  * [Converting C Code to Rust](#converting-c-code-to-Rust)
-  * [Language Bridges](#language-bridges)
-  * [Debugging](#debugging)
-  * [Setting up a dev environment](#setting-up-a-dev-environment)
   * [Pitfalls I found myself falling into](#pitfalls-i-found-myself-falling-into)
   * [Interesting Rust Libraries](#interesting-Rust-libraries)
-  * [Rust for Implant Dev Links](#Rust-for-implant-dev-links)
-  * [Contributors](#contributors)
+  * [Opsec](#Opsec)
+  * [Other projects I have have made in Rust](#Other-projects-I-have-made-in-Rust)
 
 ## Why Rust?
 
@@ -36,7 +28,7 @@ My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant dev
 - It is LLVM based which makes it a very good candidate for bypassing static AV detection
 - Super easy cross compilation to Windows from *nix/MacOS, only requires you to install the `mingw` toolchain, although certain libraries cannot be compiled successfully in other OSes.
 
-## Examples in this repo that work
+## Examples in this repo
 
 | File | Description |
 | ---  | --- |
@@ -95,10 +87,7 @@ For static binaries, in terminal before the build command execute:
 
 [Install Rust](https://www.rust-lang.org/tools/install) Simply download the binary and install.
 
-There are multiple libraries that helped or can help explore further:
-1)WINAPI
-2)[WINAPI2](https://github.com/MauriceKayser/rs-winapi2)
-3)Windows
+
 
 The easiest place to find the dependencies or [Crates](https://crates.io/) as they are called.
 
@@ -120,18 +109,24 @@ Careful of \0 bytes, do not forget them for strings in memory, it spent a lot of
 
 ## Interesting Rust libraries
 
-- https://github.com/dom96/jester
-- https://github.com/pragmagic/karax
-- https://github.com/Rustinem/Neel
-- https://github.com/status-im/Rust-libp2p
-- https://github.com/PMunch/libkeepass
-- https://github.com/def-/Rust-syscall
-- https://github.com/tulayang/asyncdocker
-- https://github.com/treeform/ws
-- https://github.com/guzba/zippy
-- https://github.com/rockcavera/Rust-iputils
-- https://github.com/FedericoCeratto/Rust-socks5
-- https://github.com/CORDEA/backoff
-- https://github.com/treeform/steganography
-- https://github.com/miere43/Rust-registry
-- https://github.com/status-im/Rust-daemon
+-WINAPI
+-[WINAPI2](https://github.com/MauriceKayser/rs-winapi2)
+-Windows
+
+## OPSEC
+
+-Even though Rust has good advantages it is quite difficult to get used to it and it ain't very intuitive.
+-Shellcode generation is another issue due to LLVM. I have found a few ways to approach this.
+[Donut](https://github.com/TheWover/donut) sometimes does generate shellcode that works but not all the time.
+In general, for shellcode generation the tools that are made should be made to host all code in .text segment,
+which leads to this amazing [repo](https://github.com/b1tg/rust-windows-shellcode).
+There is a shellcode sample in this project that can show you how to structure and code anything you would like to be possible 
+to work via shellcode afterwards. In addition, this project also has a shellcode generator that grabs the .text segment of a binary and
+and dumps the shellcode after executing some patches.
+This project grabs from a specific location the binary so I made a fork that receives the path of the binary as an argument [here](https://github.com/trickster0/rust-windows-shellcode-custom).
+
+## Other projects I have have made in Rust
+
+-[UDPlant](https://github.com/trickster0/UDPlant) - Basically a UDP reverse shell
+-[EDR Detector](https://github.com/trickster0/EDR_Detector) - Detects the EDRs of the installed system according to the .sys files installed
+-[Lenum](https://github.com/trickster0/Lenum) - A simple unix enumeration tool
