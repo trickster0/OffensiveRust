@@ -116,7 +116,7 @@ Careful of \0 bytes, do not forget them for strings in memory, it spent a lot of
 ## OPSEC
 
 -Even though Rust has good advantages it is quite difficult to get used to it and it ain't very intuitive.  
--Shellcode generation is another issue due to LLVM. I have found a few ways to approach this.
+-Shellcode generation is another issue due to LLVM. I have found a few ways to approach this.  
 [Donut](https://github.com/TheWover/donut) sometimes does generate shellcode that works but not all the time.
 In general, for shellcode generation the tools that are made should be made to host all code in .text segment,
 which leads to this amazing [repo](https://github.com/b1tg/rust-windows-shellcode).
