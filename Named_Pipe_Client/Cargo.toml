@@ -1,0 +1,9 @@
+[package]
+name = "Named_Pipe_Client"
+version = "0.1.0"
+edition = "2018"
+author = "trickster0"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+winapi = {version = "0.3.9", features = ["winnt","fileapi","minwindef"]}
