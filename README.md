@@ -122,7 +122,7 @@ In general, for shellcode generation the tools that are made should be made to h
 which leads to this amazing [repo](https://github.com/b1tg/rust-windows-shellcode).
 There is a shellcode sample in this project that can show you how to structure and code anything you would like to be possible 
 to work via shellcode afterwards.  In addition, this project also has a shellcode generator that grabs the .text segment of a binary and
-and dumps the shellcode after executing some patches.
+and dumps the shellcode after executing some patches.  
 This project grabs from a specific location the binary so I made a fork that receives the path of the binary as an argument [here](https://github.com/trickster0/rust-windows-shellcode-custom).
 
 ## Other projects I have have made in Rust
