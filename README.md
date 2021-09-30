@@ -71,9 +71,11 @@ For creating a project, execute:
 `cargo new <name>`
 This will automatically create the structured project folders with:
 
-`project  
--------->Cargo.toml  
--------->src-------->main.rs`  
+```bash  
+├── Cargo.toml
+└── src
+    └── main.rs
+```
 
 Cargo.toml is the file that contains the dependencies and the configuration for the compilation.
 main.rs is the main file that will be compiled along with any potential directories that contain libraries.
@@ -85,7 +87,7 @@ This will use your default toolchain.
 If you want to build the final "release" version execute:
 `cargo build --release`
 
-For static binaries, in terminal before the build command execute:
+For static binaries, in terminal before the build command execute:  
 `"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"`  
 `set RUSTFLAGS=-C target-feature=+crt-static`
 
