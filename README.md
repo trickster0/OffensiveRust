@@ -85,6 +85,11 @@ For static binaries, in terminal before the build command execute:
 `"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"`  
 `set RUSTFLAGS=-C target-feature=+crt-static`
 
+In case it does not feel easy for you to read my code the way it is written,  
+you can also you the below command inside the project directory to format it in a better way  
+`cargo fmt`
+
+
 
 [Install Rust](https://www.rust-lang.org/tools/install) Simply download the binary and install.
 
