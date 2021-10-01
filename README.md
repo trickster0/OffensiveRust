@@ -37,7 +37,7 @@ P.S. - Thank you for the template and the ideas from your research [byt3bl33d3r]
 | [Create_DLL](../master/Create_DLL/src/main.rs) | Creates DLL and pops up a msgbox, Rust does not fully support this so things might get weird since Rust DLL do not have a main function |
 | [DeviceIoControl](../master/DeviceIoControl/src/main.rs) | Opens driver handle and executing DeviceIoControl |
 | [EnableDebugPrivileges](../master/EnableDebugPrivileges/src/main.rs) | Enable SeDebugPrivilege in the current process |
-| [Exec_Shellcode_In_Memory](../master/Exec_Shellcode_In_Memory/src/main.rs) | Executes shellcode directly in memory by casting pointer |
+| [Shellcode_Local_inject](../master/Shellcode_Local_inject/src/main.rs) | Executes shellcode directly in local process by casting pointer |
 | [Execute_With_CMD](../master/Execute_Without_Create_Process/src/main.rs) | Executes cmd by passing a command via Rust |
 | [ImportedFunctionCall](../master/ImportedFunctionCall/src/main.rs) | It imports minidump from dbghelp and executes it |
 | [Kernel_Driver_Exploit](../master/Kernel_Driver_Exploit/src/main.rs) | Kernel Driver exploit for a simple buffer overflow |
