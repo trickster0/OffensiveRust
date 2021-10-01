@@ -5,7 +5,6 @@
 # OffensiveRust
 
 My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant development and general offensive operations.  
-P.S. - Thank you for the template and the ideas from your research [byt3bl33d3r](https://twitter.com/byt3bl33d3r) on https://github.com/byt3bl33d3r/OffensiveNim, I hope it is okay I copied some stuff.
 
 ## Table of Contents
 
