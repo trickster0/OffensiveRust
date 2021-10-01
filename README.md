@@ -56,7 +56,10 @@ P.S. - Thank you for the template and the ideas from your research [byt3bl33d3r]
 
 ## Compiling the examples in this repo
 
-This repository does not provide binaries, you're gonna have to compile them yourself.
+This repository does not provide binaries, you're gonna have to compile them yourself.  
+
+[Install Rust](https://www.rust-lang.org/tools/install)  
+Simply download the binary and install.
 
 This repo was compiled in Windows 10 so I would stick to it. As mentioned OpenSSL binaries will have depencency issues that will require OpenSSL and perl to be installed.
 For the TCP SSL client/server I recommend static build due to dependencies on the hosts you will execute the binaries.
@@ -92,8 +95,6 @@ you can also you the below command inside the project directory to format it in 
 Certain examples might not compile and give you some error, since it might require a nightly  
 build of Rust with the latest features. To install it just do:  
 `rustup default nightly`  
-
-[Install Rust](https://www.rust-lang.org/tools/install) Simply download the binary and install.
 
 
 
