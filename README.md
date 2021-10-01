@@ -104,7 +104,17 @@ The easiest place to find the dependencies or [Crates](https://crates.io/) as th
 
 Cross-Compiling requires to follow the instructions [here](https://rust-lang.github.io/rustup/cross-compilation.html)
 By installing different toolchains, you can cross compile with the below command  
-`cargo build --target <toolchain>`
+`cargo build --target <toolchain>`  
+
+To see the installed toolchains on your system do:  
+`rustup toolchain list`  
+
+For checking all the available toolchains you can install in your system do:  
+`rustup target list`  
+
+For installing a new toolchain do:  
+`rustup toolchain install <toolchain_name>`  
+
 
 ## Optimizing executables for size
 
