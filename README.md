@@ -110,7 +110,7 @@ Static binaries are usually quite big.
 
 ## Pitfalls I found myself falling into
 
-Careful of \0 bytes, do not forget them for strings in memory, it spent a lot of my time but windbg always helped resolving it.
+Careful of \0 bytes, do not forget them for strings in memory, I spent a lot of my time but windbg always helped resolving it.
 
 
 ## Interesting Rust libraries
