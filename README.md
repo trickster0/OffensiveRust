@@ -89,7 +89,9 @@ In case it does not feel easy for you to read my code the way it is written,
 you can also you the below command inside the project directory to format it in a better way  
 `cargo fmt`
 
-
+Certain examples might not compile and give you some error, since it might require a nightly  
+build of Rust with the latest features. To install it just do:  
+`rustup default nightly`  
 
 [Install Rust](https://www.rust-lang.org/tools/install) Simply download the binary and install.
 
