@@ -53,6 +53,7 @@ My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant dev
 | [tcp_ssl_server](../master/tcp_ssl_server/src/main.rs) | TCP Server, with port parameter(Requires openssl and perl to be installed for compiling) |
 | [wmi_execute](../master/wmi_execute/src/main.rs) | Executes WMI query to obtain the AV/EDRs in the host|
 | [Windows.h+ Bindings](../master/bindings.rs) | This file contains structures of Windows.h plus complete customized LDR,PEB,etc.. that are undocumented officially by Microsoft, add at the top of your file include!("../bindings.rs"); |
+| [UUID_Shellcode_Execution](../master/UUID_Shellcode_Execution/src/main.rs) | Plants shellcode from UUID array into heap space and uses `EnumSystemLocalesA` Callback in order to execute the shellcode. |
 
 ## Compiling the examples in this repo
 
