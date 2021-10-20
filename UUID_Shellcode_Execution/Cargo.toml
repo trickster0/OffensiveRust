@@ -1,0 +1,10 @@
+[package]
+name = "UUID_Shellcode_Execution"
+version = "0.1.0"
+author = "Furkan Ayar ( @frknayar )"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bindings = { path = "bindings" }
+windows = { version = "0.21.1" }
+winapi = {version = "0.3.9", features = ["heapapi","handleapi","winnls","winnt","rpcdce"]}
