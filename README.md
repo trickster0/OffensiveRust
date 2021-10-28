@@ -114,7 +114,7 @@ For checking all the available toolchains you can install in your system do:
 `rustup target list`  
 
 For installing a new toolchain do:  
-`rustup toolchain install <toolchain_name>`  
+`rustup target add <toolchain_name>`  
 
 
 ## Optimizing executables for size
