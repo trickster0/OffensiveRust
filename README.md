@@ -129,24 +129,26 @@ Careful of \0 bytes, do not forget them for strings in memory, I spent a lot of 
 
 ## Interesting Rust libraries
 
--WINAPI  
--[WINAPI2](https://github.com/MauriceKayser/rs-winapi2)  
--Windows - This is the official Microsoft one that I have not played much with  
+- WINAPI  
+- [WINAPI2](https://github.com/MauriceKayser/rs-winapi2)  
+- Windows - This is the official Microsoft one that I have not played much with
+- [houdini](https://github.com/yamakadi/houdini) - Helps make your executable self-delete
 
 ## OPSEC
 
--Even though Rust has good advantages it is quite difficult to get used to it and it ain't very intuitive.  
--Shellcode generation is another issue due to LLVM. I have found a few ways to approach this.  
+- Even though Rust has good advantages it is quite difficult to get used to it and it ain't very intuitive.  
+- Shellcode generation is another issue due to LLVM. I have found a few ways to approach this.  
 [Donut](https://github.com/TheWover/donut) sometimes does generate shellcode that works but depending on how the project is made, it might not.  
 In general, for shellcode generation the tools that are made should be made to host all code in .text segment,
 which leads to this amazing [repo](https://github.com/b1tg/rust-windows-shellcode).
 There is a shellcode sample in this project that can show you how to structure your code for successfull shellcode generation.  
 In addition, this project also has a shellcode generator that grabs the .text segment of a binary and
 and dumps the shellcode after executing some patches.  
-This project grabs from a specific location the binary so I made a fork that receives the path of the binary as an argument [here](https://github.com/trickster0/rust-windows-shellcode-custom).
+This project grabs from a specific location the binary so I made a fork that receives the path of the binary as an argument [here](https://github.com/trickster0/rust-windows-shellcode-custom).  
+- Even if you remove all debug symbols, rust can still keep references to your home directory in the binary. The only way I've found to remove this is to pass the following flag: `--remap-path-prefix {your home directory}={some random identifier}`. You can use bash variables to get your home directory and generate a random placeholder: `--remap-path-prefix "$HOME"="$RANDOM"`.
 
 ## Other projects I have have made in Rust
 
--[UDPlant](https://github.com/trickster0/UDPlant) - Basically a UDP reverse shell  
--[EDR Detector](https://github.com/trickster0/EDR_Detector) - Detects the EDRs of the installed system according to the .sys files installed  
--[Lenum](https://github.com/trickster0/Lenum) - A simple unix enumeration tool
+- [UDPlant](https://github.com/trickster0/UDPlant) - Basically a UDP reverse shell  
+- [EDR Detector](https://github.com/trickster0/EDR_Detector) - Detects the EDRs of the installed system according to the .sys files installed  
+- [Lenum](https://github.com/trickster0/Lenum) - A simple unix enumeration tool
