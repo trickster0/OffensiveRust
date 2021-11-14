@@ -147,7 +147,7 @@ and dumps the shellcode after executing some patches.
 This project grabs from a specific location the binary so I made a fork that receives the path of the binary as an argument [here](https://github.com/trickster0/rust-windows-shellcode-custom).  
 - Even if you remove all debug symbols, rust can still keep references to your home directory in the binary. The only way I've found to remove this is to pass the following flag: `--remap-path-prefix {your home directory}={some random identifier}`. You can use bash variables to get your home directory and generate a random placeholder: `--remap-path-prefix "$HOME"="$RANDOM"`. (By [Yamakadi](https://github.com/yamakadi))
 - Although for the above there is another way to remove info about the home directory by adding at the top of Cargo.toml  
-`cargo-features = ["strip"]` .
+`cargo-features = ["strip"]` .  
 -- Since Rust by default leaves a lot of things as strings in the binary, I mostly use this [cargo.toml](../master/cargo.toml) to avoid them and also reduce size
 
 ## Other projects I have have made in Rust
