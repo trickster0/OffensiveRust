@@ -132,7 +132,6 @@ Careful of \0 bytes, do not forget them for strings in memory, I spent a lot of 
 - WINAPI  
 - [WINAPI2](https://github.com/MauriceKayser/rs-winapi2)  
 - Windows - This is the official Microsoft one that I have not played much with
-- [houdini](https://github.com/yamakadi/houdini) - Helps make your executable self-delete
 
 ## OPSEC
 
@@ -152,3 +151,7 @@ This project grabs from a specific location the binary so I made a fork that rec
 - [UDPlant](https://github.com/trickster0/UDPlant) - Basically a UDP reverse shell  
 - [EDR Detector](https://github.com/trickster0/EDR_Detector) - Detects the EDRs of the installed system according to the .sys files installed  
 - [Lenum](https://github.com/trickster0/Lenum) - A simple unix enumeration tool
+
+## Projects in Rust that can be hepfull 
+
+- [houdini](https://github.com/yamakadi/houdini) - Helps make your executable self-delete
