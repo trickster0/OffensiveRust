@@ -19,6 +19,7 @@ My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant dev
   * [Interesting Rust Libraries](#interesting-Rust-libraries)
   * [Opsec](#Opsec)
   * [Other projects I have have made in Rust](#Other-projects-I-have-made-in-Rust)
+  * [Projects in Rust that can be hepfull ](#Projects-in-Rust-that-can-be-hepfull )
 
 ## Why Rust?
 
