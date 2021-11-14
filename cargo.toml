@@ -1,0 +1,19 @@
+cargo-features = ["strip"]
+[package]
+name = "test"
+version = "0.1.0"
+edition = "2021"
+author = "trickster0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+strip = "symbols"
+panic = "abort"
+trim-path = true
+opt-level = "z"
+lto = true
+
+[dependencies]
+kernel32-sys = "0.2.2"
+winapi = {version = "0.3.9", features = ["winnt"] }
