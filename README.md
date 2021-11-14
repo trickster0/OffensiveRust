@@ -49,7 +49,7 @@ My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant dev
 | [base64_system_enum](../master/base64_system_enum/src/main.rs) | Base64 encoding/decoding strings |
 | [http-https-requests](../master/http-https-requests/src/main.rs) | HTTP/S requests by ignoring cert check for GET/POST |
 | [patch_etw](../master/patch_etw/src/main.rs) | Patch ETW |
-| [ppid_spoof](../master/ppid_spoof/src/main.rst) | Spoof parent process for created process |
+| [ppid_spoof](../master/ppid_spoof/src/main.rs) | Spoof parent process for created process |
 | [tcp_ssl_client](../master/tcp_ssl_client/src/main.rs) | TCP client with SSL that ignores cert check (Requires openssl and perl to be installed for compiling) | 
 | [tcp_ssl_server](../master/tcp_ssl_server/src/main.rs) | TCP Server, with port parameter(Requires openssl and perl to be installed for compiling) |
 | [wmi_execute](../master/wmi_execute/src/main.rs) | Executes WMI query to obtain the AV/EDRs in the host|
