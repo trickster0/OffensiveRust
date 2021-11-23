@@ -34,7 +34,7 @@ My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant dev
 | File | Description |
 | ---  | --- |
 | [Allocate_With_Syscalls](../master/Allocate_With_Syscalls/src/main.rs) | It uses NTDLL functions directly with the ntapi Library |
-| [Create_DLL](../master/Create_DLL/src/main.rs) | Creates DLL and pops up a msgbox, Rust does not fully support this so things might get weird since Rust DLL do not have a main function |
+| [Create_DLL](../master/Create_DLL/src/lib.rs) | Creates DLL and pops up a msgbox, Rust does not fully support this so things might get weird since Rust DLL do not have a main function |
 | [DeviceIoControl](../master/DeviceIoControl/src/main.rs) | Opens driver handle and executing DeviceIoControl |
 | [EnableDebugPrivileges](../master/EnableDebugPrivileges/src/main.rs) | Enable SeDebugPrivilege in the current process |
 | [Shellcode_Local_inject](../master/Shellcode_Local_inject/src/main.rs) | Executes shellcode directly in local process by casting pointer |
