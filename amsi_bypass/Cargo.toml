@@ -1,0 +1,14 @@
+[package]
+name = "amsi_bypass"
+version = "0.1.0"
+authors = ["Idov31 <github.com/idov31>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+name = "amsi_bypass"
+path = "src/main.rs"
+
+[dependencies]
+winapi = {version = "0.3.9", features=["memoryapi", "libloaderapi", "processthreadsapi"]}
+win32-error = "0.9.0"
