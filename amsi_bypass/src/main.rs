@@ -1,5 +1,4 @@
 use std::{ffi::CString, ptr};
-use std::process::Command;
 
 use winapi::{
     um::{
