@@ -1,2 +1,4 @@
-*.exe
-*.elf
+*.rs.bk
+Cargo.lock
+*exe
+*elf
