@@ -56,6 +56,7 @@ My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant dev
 | [Windows.h+ Bindings](../master/bindings.rs) | This file contains structures of Windows.h plus complete customized LDR,PEB,etc.. that are undocumented officially by Microsoft, add at the top of your file include!("../bindings.rs"); |
 | [UUID_Shellcode_Execution](../master/UUID_Shellcode_Execution/src/main.rs) | Plants shellcode from UUID array into heap space and uses `EnumSystemLocalesA` Callback in order to execute the shellcode. |
 | [AMSI Bypass](../master/amsi_bypass/src/main.rs) | AMSI Bypass on Local Process |
+| [Injection_AES_Loader](../master/Injection_AES_Loader/src/main.rs) | NtTestAlert Injection with AES decryption |
 
 ## Compiling the examples in this repo
 
