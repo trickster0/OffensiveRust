@@ -8,3 +8,9 @@ author = "trickster0"
 [dependencies]
 kernel32-sys = "0.2.2"
 winapi = {version = "0.3.9", features = ["winnt"] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
