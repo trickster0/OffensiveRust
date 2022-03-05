@@ -43,7 +43,7 @@ My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant dev
 | [Kernel_Driver_Exploit](../master/Kernel_Driver_Exploit/src/main.rs) | Kernel Driver exploit for a simple buffer overflow |
 | [Named_Pipe_Client](../master/Named_Pipe_Client/src/main.rs) | Named Pipe Client |
 | [Named_Pipe_Server](../master/Named_Pipe_Server/src/main.rs) | Named Pipe Server |
-| [Process_Injection_CreateThread](../master/Process_Injection_CreateRemoteThread/src/main.rs) | Process Injection in running process with CreateThread |
+| [Process_Injection_CreateThread](../master/Process_Injection_CreateThread/src/main.rs) | Process Injection in running process with CreateThread |
 | [Process_Injection_CreateRemoteThread](../master/Process_Injection_CreateRemoteThread/src/main.rs) | Process Injection in remote process with CreateRemoteThread |
 | [Unhooking](../master/Unhooking/src/main.rs) | Unhooking calls|
 | [asm_syscall](../master/asm_syscall/src/main.rs) | Obtaining PEB address via asm |
