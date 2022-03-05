@@ -1,4 +1,3 @@
-extern crate kernel32;
 use winapi::um::winnt::{PVOID, PROCESS_ALL_ACCESS,MEM_COMMIT,MEM_RESERVE,PAGE_EXECUTE_READWRITE, PAGE_READWRITE, PAGE_EXECUTE_READ};
 use std::ptr;
 use std::io;
