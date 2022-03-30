@@ -1,0 +1,20 @@
+[package]
+name = "enum_system_geo_id"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+kernel32-sys = "0.2.1"
+winapi = {version = "0.3.8", features=[
+    "winnt",
+    "memoryapi",
+    "errhandlingapi",
+    "processthreadsapi",
+    "synchapi",
+    "winbase",
+    "handleapi",
+    "libloaderapi",
+    "winnls"
+]}
