@@ -1,6 +1,7 @@
 #[macro_use]
 extern crate litcrypt;
 
+// Call the litcrypt method first...
 use_litcrypt!();
 
 fn main(){
@@ -8,7 +9,9 @@ fn main(){
     let payload_url: String = "http://fancyladsnacks.local/definitelymalware.exe".to_string();
     let evil_password: String = "OhNoPayUsBitcoin!@#".to_string();
 
+    // If I want to encrypt a literal string, I can use the lc!() macro. This and the use_litcrypt() method will encrypt anything that is passed as the argument.
     let _can_you_see_me: String = lc!("Can you see me?").to_string();
+    // You will not see the above string in the bin once it is compiled. You WILL see this one, because we aren't using the lc!() macro:
     let _or_can_you_see_me: String = "Or can you see me?".to_string();
 
     println!("[!] Unencrypted Strings:");
