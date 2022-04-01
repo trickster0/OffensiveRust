@@ -59,6 +59,7 @@ My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant dev
 | [UUID_Shellcode_Execution](../master/UUID_Shellcode_Execution/src/main.rs)                             | Plants shellcode from UUID array into heap space and uses `EnumSystemLocalesA` Callback in order to execute the shellcode.                                                               |
 | [AMSI Bypass](../master/amsi_bypass/src/main.rs)                                                       | AMSI Bypass on Local Process                                                                                                                                                             |
 | [Injection_AES_Loader](../master/Injection_AES_Loader/src/main.rs)                                     | NtTestAlert Injection with AES decryption                                                                                                                                                |
+| [Litcrypt_String_Encryption](../master/Litcrypt_String_Encryption/src/main.rs)                         | Using the [Litcrypt](https://github.com/anvie/litcrypt.rs) crate to encrypt literal strings at rest and in memory to defeat static AV.                                                                                      |
 
 ## Compiling the examples in this repo
 
