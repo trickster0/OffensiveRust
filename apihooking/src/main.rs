@@ -17,14 +17,6 @@ static_detour! {
     static MsgBox: unsafe extern "system" fn(HWND, LPCSTR, LPCSTR, UINT) -> i32;
 }
 
-unsafe fn hooked_messagebox(hwnd: HWND, lp_text: LPCSTR, lp_caption: LPCSTR, u_type: UINT) -> i32 {
-    println!("Hooked MessageBoxA");
-
-    unsafe {
-        MsgBox.call(hwnd, lp_text, lp_caption, u_type)
-    }
-}
-
 
 fn main() {
     unsafe {
