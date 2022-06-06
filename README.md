@@ -62,6 +62,7 @@ My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant dev
 | [Litcrypt_String_Encryption](../master/Litcrypt_String_Encryption/src/main.rs)                         | Using the [Litcrypt](https://github.com/anvie/litcrypt.rs) crate to encrypt literal strings at rest and in memory to defeat static AV.                                                                                      |
 | [Api Hooking](../master/apihooking/src/main.rs)                         | Api Hooking using detour library                                                                                      |
 | [memfd_create](../master/memfd_create/src/main.rs)                         | Execute payloads from memory using the memfd_create technique (For Linux)                                                                                      |
+| [RC4_Encryption](../master/Injection_Rc4_Loader/src/main.rs) | RC4 Decrypted shellcode |
 
 ## Compiling the examples in this repo
 
