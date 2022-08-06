@@ -33,7 +33,7 @@ fn get_module_base_addr(module_name: &str) -> HINSTANCE {
         loop {
             let buffer = std::slice::from_raw_parts(
                 (*p_ldr_data_table_entry).FullDllName.Buffer,
-                (*p_ldr_data_table_entry).FullDllName.Length as usize);
+                (*p_ldr_data_table_entry).FullDllName.Length as usize / 2);
             let dll_name = String::from_utf16_lossy(buffer);
             if dll_name.to_lowercase().starts_with(module_name) {
                 let module_base: HINSTANCE = (*p_ldr_data_table_entry).Reserved2[0] as HINSTANCE;
@@ -41,11 +41,6 @@ fn get_module_base_addr(module_name: &str) -> HINSTANCE {
             }
             p_list_entry = (*p_list_entry).Flink;
             p_ldr_data_table_entry = (*p_list_entry).Flink as *const LDR_DATA_TABLE_ENTRY;
-
-            if p_list_entry == (*peb.Ldr).InMemoryOrderModuleList.Flink {
-                println!("Module not found!");
-                return 0;
-            }
         }
     }
 }
