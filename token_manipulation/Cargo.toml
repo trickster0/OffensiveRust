@@ -1,0 +1,12 @@
+[package]
+name = "token_manipulation"
+version = "0.1.0"
+authors = ["Idov31 <github.com/idov31>"]
+edition = "2021"
+
+[[bin]]
+name = "token_manipulation"
+path = "src/main.rs"
+
+[dependencies]
+winapi = {version= "0.3.9", features = ["errhandlingapi", "securitybaseapi", "handleapi", "processthreadsapi"]}
