@@ -64,6 +64,7 @@ My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant dev
 | [Api Hooking](../master/apihooking/src/main.rs)                                                        | Api Hooking using detour library                                                                                                                                                         |
 | [memfd_create](../master/memfd_create/src/main.rs)                                                     | Execute payloads from memory using the memfd_create technique (For Linux)                                                                                                                |
 | [RC4_Encryption](../master/Injection_Rc4_Loader/src/main.rs)                                           | RC4 Decrypted shellcode                                                                                                                                                                  |
+| [Steal Token](../master/token_manipulation/src/main.rs) | Steal Token From Process|
 
 ## Compiling the examples in this repo
 
