@@ -65,6 +65,7 @@ My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant dev
 | [memfd_create](../master/memfd_create/src/main.rs)                                                     | Execute payloads from memory using the memfd_create technique (For Linux)                                                                                                                |
 | [RC4_Encryption](../master/Injection_Rc4_Loader/src/main.rs)                                           | RC4 Decrypted shellcode                                                                                                                                                                  |
 | [Steal Token](../master/token_manipulation/src/main.rs) | Steal Token From Process|
+| [Keyboard Hooking](../master/keyboard_hooking/src/main.rs) | Keylogging by hooking keyboard with SetWindowsHookEx |
 
 ## Compiling the examples in this repo
 
