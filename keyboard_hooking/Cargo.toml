@@ -1,0 +1,14 @@
+[package]
+name = "keyboard_hooking"
+version = "0.1.0"
+authors = ["Idov31 <github.com/idov31>"]
+edition = "2021"
+
+[[bin]]
+name = "keyboard_hooking"
+path = "src/main.rs"
+
+[dependencies]
+windows = {version = "0.43.0", features = [
+    "Win32_Foundation",
+    "Win32_UI_WindowsAndMessaging"]}
