@@ -1,0 +1,10 @@
+[package]
+name = "process_hollowing-rs"
+version = "0.1.0"
+edition = "2021"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ntapi = { version = "0.3.7", features = ["impl-default"]}
+winapi = { version = "0.3.9", features = ["processthreadsapi", "memoryapi", "winbase", "impl-default", "errhandlingapi"] }
+libaes = "0.6.1"

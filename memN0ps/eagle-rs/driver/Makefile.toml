@@ -1,0 +1,32 @@
+[env.development]
+TARGET_PATH = "../target/x86_64-pc-windows-msvc/debug"
+
+[env.production]
+TARGET_PATH = "../target/x86_64-pc-windows-msvc/release"
+BUILD_FLAGS = "--release"
+
+[tasks.build-driver]
+script = [
+    "cargo b %BUILD_FLAGS%"
+]
+
+[tasks.rename]
+dependencies = ["build-driver"]
+ignore_errors = true
+script = [
+    "cd %TARGET_PATH%",
+    "rename driver.dll Eagle.sys",
+]
+
+[tasks.sign]
+dependencies = ["build-driver", "rename"]
+script = [
+    # Load the Visual Studio Developer environment
+    "call \"%ProgramFiles(x86)%\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat\"",
+
+    # Create a self signed certificate (only if not already done)
+    "if not exist DriverCertificate.cer ( makecert -r -pe -ss PrivateCertStore -n CN=DriverCertificate DriverCertificate.cer ) else ( echo Certificate already exists. )",
+
+    # Sign the driver
+    "signtool sign /a /v /s PrivateCertStore /n DriverCertificate /fd certHash /t http://timestamp.digicert.com %TARGET_PATH%/Eagle.sys"
+]

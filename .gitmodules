@@ -1,0 +1,24 @@
+[submodule "memN0ps/eagle-rs"]
+	path = memN0ps/eagle-rs
+	url = git@github.com:memN0ps/eagle-rs.git
+[submodule "memN0ps/arsenal-rs"]
+	path = memN0ps/arsenal-rs
+	url = git@github.com:memN0ps/arsenal-rs.git
+[submodule "memN0ps/psyscalls-rs"]
+	path = memN0ps/psyscalls-rs
+	url = git@github.com:memN0ps/psyscalls-rs.git
+[submodule "memN0ps/mmapper-rs"]
+	path = memN0ps/mmapper-rs
+	url = git@github.com:memN0ps/mmapper-rs.git
+[submodule "memN0ps/srdi-rs"]
+	path = memN0ps/srdi-rs
+	url = git@github.com:memN0ps/srdi-rs.git
+[submodule "memN0ps/mordor-rs"]
+	path = memN0ps/mordor-rs
+	url = git@github.com:memN0ps/mordor-rs.git
+[submodule "memN0ps/mimiRust"]
+	path = memN0ps/mimiRust
+	url = git@github.com:memN0ps/mimiRust.git
+[submodule "memN0ps/pemadness-rs"]
+	path = memN0ps/pemadness-rs
+	url = git@github.com:memN0ps/pemadness-rs.git
