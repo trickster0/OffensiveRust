@@ -1,0 +1,10 @@
+[env]
+NAME = "srdi"
+DEV = false
+PROD = false
+
+[env.development]
+DEV = true
+
+[env.production]
+PROD = true

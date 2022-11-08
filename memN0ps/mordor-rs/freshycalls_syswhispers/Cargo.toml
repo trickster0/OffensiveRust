@@ -1,0 +1,33 @@
+[package]
+name = "freshycalls_syswhispers"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+#default = ["_DIRECT_"]
+#default = ["_INDIRECT_"]
+_INDIRECT_ = []
+_DIRECT_ = []
+
+[dependencies]
+env_logger = "0.9.0"
+log = "0.4.17"
+sysinfo = "0.20.4"
+obfstr = "0.3.0"
+ntapi = { version = "0.4.0", features = ["impl-default"] }
+
+[dependencies.windows-sys]
+version = "0.36.1"
+features = [
+    "Win32_Foundation",
+    "Win32_Security",
+    "Win32_System_Threading",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_System_Memory",
+    "Win32_System_Diagnostics_Debug",
+    "Win32_System_SystemServices",
+    "Win32_System_WindowsProgramming",
+    "Win32_System_LibraryLoader",
+]

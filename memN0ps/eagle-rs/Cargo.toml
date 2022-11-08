@@ -1,0 +1,10 @@
+[workspace]
+
+members = [
+    "client",
+    "driver",
+    "common",
+]
+
+[profile.release]
+opt-level = 3

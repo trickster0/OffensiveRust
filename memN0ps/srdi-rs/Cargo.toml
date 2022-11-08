@@ -1,0 +1,9 @@
+[workspace]
+
+members = [
+    "hash_calculator",
+    "testdll",
+    "reflective_loader",
+    "generate_shellcode",
+    "inject",
+]

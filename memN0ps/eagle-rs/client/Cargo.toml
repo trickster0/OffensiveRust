@@ -1,0 +1,12 @@
+[package]
+name = "client"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+winapi = { version = "0.3.7", features = ["processthreadsapi", "memoryapi", "winbase", "impl-default", "errhandlingapi", "fileapi", "winioctl"] }
+sysinfo = "0.20.4"
+clap = { version = "3.1.6", features = ["derive"] }
+common = { path = "../common" }
