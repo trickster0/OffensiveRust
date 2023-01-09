@@ -89,7 +89,7 @@ This repository does not provide binaries, you're gonna have to compile them you
 [Install Rust](https://www.rust-lang.org/tools/install)  
 Simply download the binary and install.
 
-This repo was compiled in Windows 10 so I would stick to it. As mentioned OpenSSL binaries will have depencency issues that will require OpenSSL and perl to be installed.
+This repo was compiled in Windows 10 so I would stick to it. As mentioned OpenSSL binaries will have dependency issues that will require OpenSSL and perl to be installed.
 For the TCP SSL client/server I recommend static build due to dependencies on the hosts you will execute the binaries.
 For creating a project, execute:  
 `cargo new <name>`
@@ -167,7 +167,7 @@ Careful of \0 bytes, do not forget them for strings in memory, I spent a lot of 
 [Donut](https://github.com/TheWover/donut) sometimes does generate shellcode that works but depending on how the project is made, it might not.  
 In general, for shellcode generation the tools that are made should be made to host all code in .text segment,
 which leads to this amazing [repo](https://github.com/b1tg/rust-windows-shellcode).
-There is a shellcode sample in this project that can show you how to structure your code for successfull shellcode generation.  
+There is a shellcode sample in this project that can show you how to structure your code for successful shellcode generation.  
 In addition, this project also has a shellcode generator that grabs the .text segment of a binary and
 and dumps the shellcode after executing some patches.  
 This project grabs from a specific location the binary so I made a fork that receives the path of the binary as an argument [here](https://github.com/trickster0/rust-windows-shellcode-custom).  
@@ -177,7 +177,7 @@ This project grabs from a specific location the binary so I made a fork that rec
 Since Rust by default leaves a lot of things as strings in the binary, I mostly use this [cargo.toml](../master/cargo.toml) to avoid them and also reduce size  
 with build command   
 `cargo build --release -Z build-std=std,panic_abort -Z build-std-features=panic_immediate_abort --target x86_64-pc-windows-msvc`
-- [Yamakadi] , also pointed out that depending on the imported libraries, stripping is not always consistent on hiding the home directory, so a combination of his solution to remap the path and use teh above cargo would work best. Try to be aware and check your binaries before executing them to your engagements for potential strings that are not stripped properly.
+- [Yamakadi] , also pointed out that depending on the imported libraries, stripping is not always consistent on hiding the home directory, so a combination of his solution to remap the path and use the above cargo command would work best. Try to be aware and check your binaries before executing them to your engagements for potential strings that are not stripped properly.
 
 ## Other projects I have have made in Rust
 
@@ -185,6 +185,6 @@ with build command
 - [EDR Detector](https://github.com/trickster0/EDR_Detector) - Detects the EDRs of the installed system according to the .sys files installed  
 - [Lenum](https://github.com/trickster0/Lenum) - A simple unix enumeration tool
 
-## Projects in Rust that can be hepfull 
+## Projects in Rust that can be helpful 
 
 - [houdini](https://github.com/yamakadi/houdini) - Helps make your executable self-delete
