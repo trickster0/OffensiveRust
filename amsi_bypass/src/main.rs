@@ -18,7 +18,6 @@ use winapi::{
             DWORD, 
             FALSE
         },
-        ntdef::NULL
     }
 };
 
