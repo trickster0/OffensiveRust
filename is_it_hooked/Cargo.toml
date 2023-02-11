@@ -1,0 +1,9 @@
+[package]
+name = "is_it_hooked"
+version = "0.1.0"
+authors = ["g0h4n"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+winapi = {version = "0.3.9", features =["processthreadsapi","memoryapi","libloaderapi"]}
