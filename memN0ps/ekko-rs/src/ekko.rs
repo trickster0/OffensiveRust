@@ -2,7 +2,6 @@ use std::{
     ffi::c_void,
     ptr::{null, null_mut},
 };
-use ntapi::winapi::shared::ntdef::PVOID;
 use windows_sys::Win32::{
     Foundation::{GetLastError, HANDLE},
     System::{
@@ -13,8 +12,7 @@ use windows_sys::Win32::{
         Threading::{
             CreateEventW, CreateTimerQueue, CreateTimerQueueTimer, DeleteTimerQueue,
             WaitForSingleObject, WAITORTIMERCALLBACK, WT_EXECUTEINTIMERTHREAD,
-        },
-        WindowsProgramming::INFINITE,
+        }
     },
 };
 
@@ -199,7 +197,7 @@ pub fn ekko(sleep_time: u32, key_buf: &mut Vec<u8>) {
     
             println!("[+] Wait for hEvent");
 
-            WaitForSingleObject(h_event, INFINITE); //0xFFFFFFFF
+            WaitForSingleObject(h_event, 0xFFFFFFFF);
 
             println!("[+] Finished waiting for event");
         }
