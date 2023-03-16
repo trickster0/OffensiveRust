@@ -135,7 +135,6 @@ pub fn ekko(sleep_time: u32, key_buf: &mut Vec<u8>) {
         rop_prot_rw.Rdx = image_size as u64;
         rop_prot_rw.R8 = PAGE_READWRITE as u64;
         rop_prot_rw.R9 = &mut old_protect as *mut _ as u64;
-        //dump_virtual_protect_context(&rop_prot_rw);
 
         // https://doxygen.reactos.org/df/d13/sysfunc_8c.html#a66d55017b8625d505bd6c5707bdb9725
         // NTSTATUS WINAPI SystemFunction032(struct ustring *data, const struct ustring *key)
@@ -144,7 +143,6 @@ pub fn ekko(sleep_time: u32, key_buf: &mut Vec<u8>) {
         rop_mem_enc.Rip = system_function032 as u64;
         rop_mem_enc.Rcx = &mut data as *mut _ as u64;
         rop_mem_enc.Rdx = &key as *const _ as u64;
-        //dump_system_function032_context(&rop_mem_enc);
 
         // pub unsafe extern "system" fn WaitForSingleObject(hhandle: HANDLE, dwmilliseconds: u32) -> WIN32_ERROR
         // https://docs.rs/windows-sys/latest/windows_sys/Win32/System/Threading/fn.WaitForSingleObject.html
@@ -152,7 +150,6 @@ pub fn ekko(sleep_time: u32, key_buf: &mut Vec<u8>) {
         rop_delay.Rip = wait_for_single_object as u64;
         rop_delay.Rcx = -1 as isize as u64; // NtCurrentProcess
         rop_delay.Rdx = sleep_time as u64;
-        //dump_wait_for_single_object_context(&rop_delay);
 
         // https://doxygen.reactos.org/df/d13/sysfunc_8c.html#a66d55017b8625d505bd6c5707bdb9725
         // NTSTATUS WINAPI SystemFunction032(struct ustring *data, const struct ustring *key)
@@ -161,7 +158,6 @@ pub fn ekko(sleep_time: u32, key_buf: &mut Vec<u8>) {
         rop_mem_dec.Rip = system_function032 as u64;
         rop_mem_dec.Rcx = &mut data as *mut _ as u64;
         rop_mem_dec.Rdx = &key as *const _ as u64;
-        //dump_system_function032_context(&rop_mem_dec);
 
         // pub unsafe extern "system" fn VirtualProtect(lpaddress: *const c_void, dwsize: usize, flnewprotect: PAGE_PROTECTION_FLAGS, lpfloldprotect: *mut PAGE_PROTECTION_FLAGS) -> BOOL
         // https://docs.rs/windows-sys/latest/windows_sys/Win32/System/Memory/fn.VirtualProtect.html
@@ -171,14 +167,12 @@ pub fn ekko(sleep_time: u32, key_buf: &mut Vec<u8>) {
         rop_prot_rx.Rdx = image_size as u64;
         rop_prot_rx.R8 = PAGE_EXECUTE_READWRITE as u64;
         rop_prot_rx.R9 = &mut old_protect as *mut _ as u64;
-        //dump_virtual_protect_context(&rop_prot_rx);
 
         // https://docs.rs/windows-sys/latest/windows_sys/Win32/System/Threading/fn.SetEvent.html
         // pub unsafe extern "system" fn SetEvent(hevent: HANDLE) -> BOOL
         rop_set_evt.Rsp -= 8;
         rop_set_evt.Rip = set_event as u64;
         rop_set_evt.Rcx = h_event as u64;
-        //dump_set_event_context(&rop_set_evt);
 
         println!("[+] Queue timers");
         unsafe 
@@ -206,66 +200,4 @@ pub fn ekko(sleep_time: u32, key_buf: &mut Vec<u8>) {
     // Deletes a timer queue. Any pending timers in the queue are canceled and deleted.
     // https://learn.microsoft.com/en-us/windows/win32/api/threadpoollegacyapiset/nf-threadpoollegacyapiset-deletetimerqueue
     unsafe { DeleteTimerQueue(h_timer_queue) };
-}
-
-#[allow(dead_code)]
-/// Gets user input from the terminal
-fn get_input() -> std::io::Result<()> {
-    let mut buf = String::new();
-    std::io::stdin().read_line(&mut buf)?;
-    Ok(())
-}
-
-#[allow(dead_code)]
-/// Used for debugging
-pub fn pause() {
-    match get_input() {
-        Ok(buffer) => println!("{:?}", buffer),
-        Err(error) => println!("error: {}", error),
-    };
-}
-
-#[allow(dead_code)]
-fn dump_virtual_protect_context(rop: &ProperlyAlignedContext) {
-    log::info!(
-        "[+] RSP: {:#x} RIP: {:#x} -> VirtualProtect({:#x}, {:#x}, {:#x}, {:#x})",
-        rop.Rsp,
-        rop.Rip,
-        rop.Rcx,
-        rop.Rdx,
-        rop.R8,
-        rop.R9
-    );
-}
-
-#[allow(dead_code)]
-fn dump_system_function032_context(rop: &ProperlyAlignedContext) {
-    log::info!(
-        "[+] RSP: {:#x} RIP: {:#x} -> SystemFunction032({:#x}, {:#x})",
-        rop.Rsp,
-        rop.Rip,
-        rop.Rcx,
-        rop.Rdx
-    );
-}
-
-#[allow(dead_code)]
-fn dump_wait_for_single_object_context(rop: &ProperlyAlignedContext) {
-    log::info!(
-        "[+] RSP: {:#x} RIP: {:#x} -> WaitForSingleObject({:#x}, {:#x})",
-        rop.Rsp,
-        rop.Rip,
-        rop.Rcx,
-        rop.Rdx
-    );
-}
-
-#[allow(dead_code)]
-fn dump_set_event_context(rop: &ProperlyAlignedContext) {
-    log::info!(
-        "[+] RSP: {:#x} RIP: {:#x} -> SetEvent({:#x})",
-        rop.Rsp,
-        rop.Rip,
-        rop.Rcx
-    );
 }
