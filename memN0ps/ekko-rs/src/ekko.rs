@@ -21,7 +21,7 @@ use windows_sys::Win32::{
 struct UString {
     length: u32,
     maximum_length: u32,
-    buffer: PVOID,
+    buffer: *mut u16,
 }
 
 // There is a bug in windows-rs/windows-sys and WINAPI: https://github.com/microsoft/win32metadata/issues/1044. Otherwise this is not needed.
