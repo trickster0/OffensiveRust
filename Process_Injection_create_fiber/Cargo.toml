@@ -1,0 +1,9 @@
+[package]
+name = "create_fiber"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+windows-sys = { version = "0.45.0", features = ["Win32_System_Threading", "Win32_System_Memory", "Win32_Foundation"] }
