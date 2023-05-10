@@ -178,7 +178,7 @@ This project grabs from a specific location the binary so I made a fork that rec
 Since Rust by default leaves a lot of things as strings in the binary, I mostly use this [cargo.toml](../master/cargo.toml) to avoid them and also reduce size  
 with build command   
 `cargo build --release -Z build-std=std,panic_abort -Z build-std-features=panic_immediate_abort --target x86_64-pc-windows-msvc`
-- [Yamakadi] , also pointed out that depending on the imported libraries, stripping is not always consistent on hiding the home directory, so a combination of his solution to remap the path and use teh above cargo would work best. Try to be aware and check your binaries before executing them to your engagements for potential strings that are not stripped properly.
+- [Yamakadi] , also pointed out that depending on the imported libraries, stripping is not always consistent on hiding the home directory, so a combination of his solution to remap the path and use the above cargo would work best. Try to be aware and check your binaries before executing them to your engagements for potential strings that are not stripped properly.
 
 ## Other projects I have have made in Rust
 
