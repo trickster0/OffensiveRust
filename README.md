@@ -81,7 +81,7 @@ My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant dev
 | [memN0ps: pemadness-rs](https://github.com/memN0ps/pemadness-rs/blob/main/pemadness/src/lib.rs)                                                   | Rusty Portable Executable Parsing Library (PE Parsing Library) using `windows-sys`                                                                                                                                                       |
 | [memN0ps: mimiRust](https://github.com/memN0ps/mimiRust/blob/main/src/main.rs)                                                          | Mimikatz made in Rust by @ThottySploit. The original author deleted their GitHub account, so it's been uploaded for community use.                                                                                                                                                   |
 | [memN0ps and trickster0: ekko-rs](https://github.com/memN0ps/ekko-rs/blob/master/src/ekko.rs)                                                          |  Rusty Ekko - Sleep Obfuscation in Rust using windows-sys.                                                                                                                                                   |
-
+| [b1-team: superman](https://github.com/b1-team/superman/blob/main/src/main.rs)                        | Kill processes protected by antivirus during offensive activities (BYOVD).                                                                                                                |
 
 ## Compiling the examples in this repo
 
