@@ -18,7 +18,7 @@ My experiments in weaponizing [Rust](https://www.rust-lang.org/) for implant dev
   * [Pitfalls I found myself falling into](#pitfalls-i-found-myself-falling-into)
   * [Interesting Rust Libraries](#interesting-Rust-libraries)
   * [Opsec](#Opsec)
-  * [Other projects I have have made in Rust](#Other-projects-I-have-made-in-Rust)
+  * [Other projects I have made in Rust](#Other-projects-I-have-made-in-Rust)
   * [Projects in Rust that can be hepfull ](#Projects-in-Rust-that-can-be-hepfull )
 
 ## Why Rust?
@@ -180,7 +180,7 @@ with build command
 `cargo build --release -Z build-std=std,panic_abort -Z build-std-features=panic_immediate_abort --target x86_64-pc-windows-msvc`
 - [Yamakadi] , also pointed out that depending on the imported libraries, stripping is not always consistent on hiding the home directory, so a combination of his solution to remap the path and use teh above cargo would work best. Try to be aware and check your binaries before executing them to your engagements for potential strings that are not stripped properly.
 
-## Other projects I have have made in Rust
+## Other projects I have made in Rust
 
 - [UDPlant](https://github.com/trickster0/UDPlant) - Basically a UDP reverse shell  
 - [EDR Detector](https://github.com/trickster0/EDR_Detector) - Detects the EDRs of the installed system according to the .sys files installed  
